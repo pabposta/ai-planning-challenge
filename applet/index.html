@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <!-- charset must remain utf-8 to be handled properly by Processing -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>challenge : Built with Processing</title>
+
+    <style type="text/css">
+            /* <![CDATA[ */
+
+        body {
+            margin: 60px 0px 0px 55px;
+            font-family: verdana, geneva, arial, helvetica, sans-serif;
+            font-size: 11px;
+            background-color: #ddddcc;
+            text-decoration: none;
+            font-weight: normal;
+            line-height: normal;
+        }
+
+        a          { color: #3399cc; }
+        a:link     { color: #3399cc; text-decoration: underline; }
+        a:visited  { color: #3399cc; text-decoration: underline; }
+        a:active   { color: #3399cc; text-decoration: underline; }
+        a:hover    { color: #3399cc; text-decoration: underline; }
+
+            /* ]]> */
+    </style>
+</head>
+
+<body>
+<div id="content">
+    <div id="challenge_container">
+
+        <!-- This version plays nicer with older browsers,
+             but requires JavaScript to be enabled.
+             http://java.sun.com/javase/6/docs/technotes/guides/jweb/deployment_advice.html
+             http://download.oracle.com/javase/tutorial/deployment/deploymentInDepth/ -->
+        <script type="text/javascript"
+                src="http://www.java.com/js/deployJava.js"></script>
+
+        <script type="text/javascript">
+            /* <![CDATA[ */
+
+            var attributes = {
+                code: 'challenge.class',
+                archive: 'challenge.jar',
+                width: 640,
+            height: 480
+            };
+            var parameters = {
+                image: 'loading.gif',
+                centerimage: 'true'
+            };
+            var version = '1.5';
+            deployJava.runApplet(attributes, parameters, version);
+
+            /* ]]> */
+        </script>
+
+        <noscript> <div>
+            <!--[if !IE]> -->
+            <object classid="java:challenge.class"
+                    type="application/x-java-applet"
+                    archive="challenge.jar"
+                    width="640" height="480"
+                    standby="Loading Processing software..." >
+
+                <param name="archive" value="challenge.jar" />
+
+                <param name="mayscript" value="true" />
+                <param name="scriptable" value="true" />
+
+                <param name="image" value="loading.gif" />
+                <param name="boxmessage" value="Loading Processing software..." />
+                <param name="boxbgcolor" value="#FFFFFF" />
+                <!--<![endif]-->
+
+                <!-- For more instructions on deployment,
+                 or to update the CAB file listed here, see:
+                 http://java.sun.com/javase/6/webnotes/family-clsid.html
+                 http://java.sun.com/javase/6/webnotes/install/jre/autodownload.html -->
+                <object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+                        codebase="http://java.sun.com/update/1.6.0/jinstall-6u20-windows-i586.cab"
+                        width="640" height="480"
+                        standby="Loading Processing software..."  >
+
+                    <param name="code" value="challenge" />
+                    <param name="archive" value="challenge.jar" />
+
+                    <param name="mayscript" value="true" />
+                    <param name="scriptable" value="true" />
+
+                    <param name="image" value="loading.gif" />
+                    <param name="boxmessage" value="Loading Processing software..." />
+                    <param name="boxbgcolor" value="#FFFFFF" />
+
+                    <p>
+                        <strong>
+                            This browser does not have a Java Plug-in.
+                            <br />
+                            <a href="http://www.java.com/getjava" title="Download Java Plug-in">
+                                Get the latest Java Plug-in here.
+                            </a>
+                        </strong>
+                    </p>
+
+                </object>
+
+                <!--[if !IE]> -->
+            </object>
+            <!--<![endif]-->
+
+        </div> </noscript>
+
+    </div>
+
+    <p>
+        Controls: Click where you want to go. p or P pauses the game.
+
+This is a sketch for the AI Planning course on Coursera. The goal is to reach the green square, while avoiding the hunting airplanes. There are some obstacles, indicating squares that cannot be visited.
+The hunting planes have different strategies. The first one follows you around. It goes where you go. The second one is an interceptor that always tries to go between you and the goal. The third one tries to cut off posible escape routes. Its position depends on that of the other hunters. Together they form a coordinated team.
+All hunters use A* for path finding. Path finding is performed on the squares (the grid), and is therefore quick enough to allow recalculation of the path in real time. Cost between horizontally or vertically adjacent squares is 1 and sqrt(2) for diagonally adjacent squares. The heuristic uses the euclidean distance. The implementation of A* is that of Peter Lager's Path finding library (http://www.lagers.org.uk/pfind/index.html).
+All images used are public. List of sources of the images not created by me:
+http://www.publicdomainpictures.net/view-image.php?image=66948&picture=chinese-illustration
+http://www.widgetworx.com/spritelib/
+    </p>
+
+    <p>
+        Source code: <a href="challenge.pde">challenge</a> <a href="Agent.pde">Agent</a> <a href="Animation.pde">Animation</a> <a href="ClickAnimation.pde">ClickAnimation</a> <a href="CoordinateDouble.pde">CoordinateDouble</a> <a href="CoordinateInt.pde">CoordinateInt</a> <a href="Drawable.pde">Drawable</a> <a href="Follower.pde">Follower</a> <a href="Hero.pde">Hero</a> <a href="Hunter.pde">Hunter</a> <a href="Interceptor.pde">Interceptor</a> <a href="Obstacle.pde">Obstacle</a> <a href="RouteCutter.pde">RouteCutter</a> <a href="Rules.pde">Rules</a> <a href="Tile.pde">Tile</a> <a href="View.pde">View</a> <a href="World.pde">World</a> 
+    </p>
+
+    <p>
+        Built with <a href="http://processing.org" title="Processing.org">Processing</a>
+    </p>
+</div>
+</body>
+</html>
